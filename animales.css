@@ -1,0 +1,63 @@
+/* Reseteo de márgenes y relleno */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Estilo para el contenedor de la galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre imágenes */
+    padding: 10px;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+}
+
+/* Estilo para las imágenes dentro del contenedor de la galería */
+.gallery-item {
+    border-radius: 4px;
+    height: 300px;
+    flex: 1 1 100%; /* Por defecto, cada imagen ocupa el ancho completo en pantallas pequeñas */
+    width: 450px;
+    box-sizing: border-box;
+}
+
+/* Pantalla extragrande (más de 1200px) */
+@media (min-width: 1200px) {
+    .gallery-item {
+        flex: 1 1 calc(33.333% - 20px); /* Tres imágenes en fila, ajustando el tamaño para el espacio entre ellas */
+    }
+}
+
+/* Pantalla grande (de 768px a 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px); /* Dos imágenes en fila, ajustando el tamaño para el espacio entre ellas */
+    }
+    .gallery-item:nth-child(3) {
+        flex: 1 1 50%; /* La tercera imagen ocupa toda la fila */
+    }
+}
+
+/* Pantalla pequeña (menos de 768px) */
+@media (max-width: 767px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px); /* Dos imágenes en fila */
+    }
+    .gallery-item:nth-child(3) {
+        flex: 1 1 100%; /* La tercera imagen ocupa toda la fila */
+    }
+}
+
+/* Pantalla extrapequeña (menos de 500px) */
+@media (max-width: 500px) {
+    .gallery-item {
+        flex: 1 1 60%; /* Una imagen en cada fila */
+        margin: 5px;
+        width: 10px;
+    }
+}
+
+
